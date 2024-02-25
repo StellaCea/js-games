@@ -5,16 +5,20 @@ const blockHeight = 20
 const ballDiameter = 20
 const boardWidth = 560
 const boardHeight = 300
-let timerId
+
 let xDirection = -2
 let yDirection = 2
-let score = 0
+
 
 const userStart = [230, 10]
 let currentPosition = userStart
 
 const ballStart = [270, 40]
 let ballCurrentPosition = ballStart
+
+let timerId
+let score = 0
+
 
 //create Block
 class Block {
@@ -129,10 +133,10 @@ function checkForCollisions() {
             blocks.splice(i, 1)
             changeDirection()
             score++
-            scoreDisplay.innerHTML(score)
+            scoreDisplay.innerHTML = score
 
             //check for win
-            if (blocks.length === 0){
+            if (blocks.length == 0){
                 scoreDisplay.innerHTML = 'You Win!'
                 clearInterval(timerId)
                 document.removeEventListener('keydown', moveUser)
